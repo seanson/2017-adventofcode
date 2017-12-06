@@ -2,8 +2,8 @@ use std::mem;
 
 const GRID_SIZE: usize = 1024;
 const ORIGIN: usize = GRID_SIZE / 2;
-const DIRS: [[i8;2];4] = [[0, 1], [-1, 0], [0, -1], [1, 0]];
-const SWEEP: [[i8;2];8] = [[-1, -1],
+const DIRS: [[isize;2];4] = [[0, 1], [-1, 0], [0, -1], [1, 0]];
+const SWEEP: [[isize;2];8] = [[-1, -1],
                              [-1, 0],
                              [-1, 1],
                              [0, -1],
@@ -21,7 +21,7 @@ fn walk_grid(end: u32) -> (i32, u32) {
     grid[ORIGIN][ORIGIN] = 1;
     
     let mut dir_it = DIRS.iter().cycle();
-    let mut cur: [i8;2] = [0, 0];
+    let mut cur: [isize;2] = [0, 0];
     let mut next = dir_it.next().unwrap();
     let mut found: bool = false;
     let mut result: u32 = 0;
